@@ -112,3 +112,7 @@ map <F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 set tags+=~/.vim/tags/stl.tag
 set tags+=~/.vim/tags/boost.tag
 set tags+=./tags
+
+" Grammar correction stuff (use :LanguageToolCheck and :LanguageToolClear)
+let g:languagetool_jar=$HOME . '/JLanguageTool/LanguageTool.jar'
+
