@@ -23,7 +23,7 @@ map! ,gr \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\
 
 " Add an includegraphics, with caption and label stuff. The cursor is at the
 " beginning of the name image
-map! ,fig \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\caption{}<CR>\label{fig|}<CR>\end{figure}<ESC>0x3k$i
+map! ,fig \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\caption{}<CR>\label{fig\|}<CR>\end{figure}<ESC>0x3k$i
 
 " Add a chapter, section, subsection with its label. The cursor is at the
 " beginning of the {chapter|section|...} name
