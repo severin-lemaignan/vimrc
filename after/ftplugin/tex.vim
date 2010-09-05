@@ -20,3 +20,13 @@ map! ,en \begin{enumerate}<CR><TAB>\item <CR>\end{enumerate}<ESC>0xk$a
 
 " Add an includegraphics, the cursor is at the beginning of the name image
 map! ,gr \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\end{figure}<ESC>0xk$i
+
+" Add an includegraphics, with caption and label stuff. The cursor is at the
+" beginning of the name image
+map! ,fig \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\caption{}<CR>\label{fig|}<CR>\end{figure}<ESC>0x3k$i
+
+" Add a chapter, section, subsection with its label. The cursor is at the
+" beginning of the {chapter|section|...} name
+map! ,ch \chapter{}<CR>\label{chapter\|}<ESC>0k$i
+map! ,se \section{}<CR>\label{sect\|}<ESC>0k$i 
+map! ,sse \subsection{}<CR>\abel{subssect\|}<ESC>0k$i
