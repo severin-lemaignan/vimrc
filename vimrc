@@ -92,6 +92,10 @@ else
 set autoindent        " always set autoindenting on
 endif " has("autocmd")
 
+" When quickfix need to open a buffer, use newtab by default instead of the
+" current buffer. Use an existing tab if already exists.
+set switchbuf=newtab,usetab
+
 " OmniCppComplete
  let OmniCpp_NamespaceSearch = 1
  let OmniCpp_GlobalScopeSearch = 1
