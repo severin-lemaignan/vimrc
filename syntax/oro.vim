@@ -7,5 +7,6 @@
 :syntax match Error / [a-zA-Z\.]*Exception/
 :syntax match Debug />>enter.*/
 :syntax match Debug />>leave.*/
-:syntax keyword Statement findForAgent add addForAgent remove removeForAgent clear clearForAgent update updateForAgent stats getInfos query
+:syntax keyword Statement fing findForAgent add addForAgent remove removeForAgent clear clearForAgent update updateForAgent stats getInfos query
 :syntax keyword Todo reset
+:syntax keyword Error inconsistent

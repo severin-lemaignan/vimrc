@@ -1,4 +1,7 @@
 " A few macro to write latex faster
+map! ,em \emph{
+map! ,bf \textbf{<ESC>ea}
+
 " Beamer stuff
 "
 " Build a block in insert mode, cursor is at the beginning of block
