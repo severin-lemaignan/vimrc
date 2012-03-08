@@ -1,121 +1,124 @@
+"""""""""""""""""""" PLUGINS
+filetype off
 
-set enc=utf-8
-set fenc=utf-8
-set termencoding=utf-8
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-set autowrite
+Bundle 'gmarik/vundle'
+Bundle 'matchit.zip'
+Bundle 'The-NERD-Commenter'
+Bundle 'The-NERD-tree'
+Bundle 'vim-powerline'
+Bundle 'Command-T'
+Bundle 'molokai'
 
- 
-""""""""""""""""""""""""""""""""""""""""""
-"Activation de la coloration syntaxique
-"et de l'indetation
-""""""""""""""""""""""""""""""""""""""""""
- 
-set nocompatible   "Supprime le comportement de Vi 
-syntax on          " Activation de la coloration syntaxique 
-colorscheme desert "Thème pour la coloration syntaxique
-set ai             "Pour l'autoindetation
-"set expandtab      
-set tabstop=4
-set shiftwidth=4 
-set softtabstop=4
-set autoindent
-set smartindent
- 
- 
-""""""""""""""""""""""""""""""""""""""""""
-"Activation de la barre de status
-""""""""""""""""""""""""""""""""""""""""""
- 
-set laststatus=2
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [FENC=%{&fileencoding}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ [%p%%]\ [LEN=%L]\
- 
- 
-"""""""""""""""""""""""""""""""""""""""""""
-"Afficher les délimeteurs de bloc
-"correspondant
-"""""""""""""""""""""""""""""""""""""""""""
- 
-set showmatch
- 
-"""""""""""""""""""""""""""""""""""""""""""
-"Différentes options pour la recherche
-"""""""""""""""""""""""""""""""""""""""""""
- 
-set incsearch
-set hlsearch
-set smartcase
- 
-"""""""""""""""""""""""""""""""""""""""""""
-"Menu completion
-"""""""""""""""""""""""""""""""""""""""""""
- 
-set wildmenu
- 
-"""""""""""""""""""""""""""""""""""""""""""
-"Activer une confirmation lorsque l'on
-"quitte sans avoir enregistrer le fichier
-"""""""""""""""""""""""""""""""""""""""""""
-set confirm
- 
-"""""""""""""""""""""""""""""""""""""""""""
-"Activation de la souris en mode shell
-"""""""""""""""""""""""""""""""""""""""""""
-set mouse=a
- 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+"""""""""""""""""""" GLOBAL
+let mapleader=","
+colorscheme molokai
+set gfn=terminus
+set go=
 
-" Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
+syntax on
 filetype plugin indent on
-			    
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-au!
-			  
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
-				  
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-autocmd BufReadPost *
-	\ if line("'\"") > 0 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
-augroup END
-else
-set autoindent        " always set autoindenting on
-endif " has("autocmd")
+set encoding=utf-8
+set hidden
+set showcmd
+"set nowrap
+set backspace=indent,eol,start
+set autoindent
+set copyindent
+set number
+set shiftround
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set history=1000
+set undolevels=1000
+set title
+"set visualbell
+set noerrorbells
+set list
+set listchars=tab:→·,trail:·,extends:→,precedes:→,nbsp:␣
+set ttyfast
+set mouse=
+set nocompatible
+set backup
+set backupdir=~/.vim_backup
+set noswapfile
+set fileformats=unix,dos,mac
+set laststatus=2
+set expandtab
+set softtabstop=4 tabstop=4 shiftwidth=4
+set ruler
+set wildignore=*.swp,*.bak
+set wildmode=longest,list
+set t_Co=256 "Force 256 colors
 
-" When quickfix need to open a buffer, use newtab by default instead of the
-" current buffer. Use an existing tab if already exists.
-set switchbuf=newtab,usetab
+"""""""""""""""""""" KEYBINDINGS
 
-" OmniCppComplete
- let OmniCpp_NamespaceSearch = 1
- let OmniCpp_GlobalScopeSearch = 1
- let OmniCpp_ShowAccess = 1
- let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
- let OmniCpp_MayCompleteDot = 1 " autocomplete after .
- let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
- let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
- let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD", "boost"]
-" " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+map cc <leader>c<space>
+map  # {v}! par 72<CR>
+map  & {v}! par 72j<CR>
+map  <F6> :setlocal spell! spelllang=en<CR>
+map  <F12> :set invhls<CR>
+cmap <C-g> <C-u><ESC>
+command! -bang W w<bang>
 
+"""""""""""""""""""" PLUGINS
 
-" F12 to rebuilt tags
-map <F12> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+let g:Powerline_symbols = 'fancy'
+let g:CommandTMaxFiles=5000
+let g:CommandTMaxHeight=12
+map <C-o> :CommandT<CR>
+map t :CommandT<CR>
+let g:CommandTAcceptSelectionMap = '<CR>'
+let g:CommandTCancelMap = '<C-g>'
 
-set tags+=~/.vim/tags/stl.tag
-set tags+=~/.vim/tags/boost.tag
-set tags+=./tags
+let NERDChristmasTree = 1
+let NERDTreeSortOrder = ['\/$', '\.js*', '\.cpp$', '\.h$', '*']
+nmap <c-b> :NERDTreeToggle<cr>
+nmap <C-n> <c-w><left><down><c-w><c-w>
+nmap <C-p> <c-w><left><up><c-w><c-w>
+nmap <C-o> <c-w><left><CR>
 
-" Grammar correction stuff (use :LanguageToolCheck and :LanguageToolClear)
-let g:languagetool_jar=$HOME . '/JLanguageTool/LanguageTool.jar'
+"""""""""""""""""""" FILES SPECIFIC
+au BufRead mutt-*        set ft=mail
+au BufRead mutt-*        set invhls
+au BufNewFile *.html 0r ~/.vim/templates/html.txt
+au BufRead,BufNewFile *.jsm setfiletype javascript
+au BufRead,BufNewFile *.xul setfiletype xml
+au filetype html,xml set listchars-=tab:>.
 
+"""""""""""""""""""" CUSTOM FUNCTIONS
+
+""" Toggle relative/absolute numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <F10> :call NumberToggle()<cr>
+
+""" FocusMode
+function! ToggleFocusMode()
+  if (&foldcolumn != 12)
+    set laststatus=0
+    set numberwidth=10
+    set foldcolumn=12
+    set noruler
+    hi FoldColumn ctermbg=none
+    hi LineNr ctermfg=0 ctermbg=none
+    hi NonText ctermfg=0
+  else
+    set laststatus=2
+    set numberwidth=4
+    set foldcolumn=0
+    set ruler
+    execute 'colorscheme ' . g:colors_name
+  endif
+endfunc
+nnoremap <F1> :call ToggleFocusMode()<cr>
