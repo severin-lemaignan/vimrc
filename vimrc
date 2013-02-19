@@ -61,7 +61,9 @@ map cc <leader>c<space>
 map  # {v}! par 72<CR>
 map  & {v}! par 72j<CR>
 map  <F6> :setlocal spell! spelllang=en<CR>
+map  <F7> <Esc>iimport pdb;pdb.set_trace()<CR><Esc>
 map  <F12> :set invhls<CR>
+map  <S-Enter> O<Esc>
 cmap <C-g> <C-u><ESC>
 command! -bang W w<bang>
 
