@@ -94,6 +94,8 @@ au filetype html,xml set listchars-=tab:>.
 
 """""""""""""""""""" CUSTOM FUNCTIONS
 
+:command -nargs=+ Find vimgrep <args>|cw
+
 """ Toggle relative/absolute numbering
 function! NumberToggle()
   if(&relativenumber == 1)
