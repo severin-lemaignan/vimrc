@@ -11,6 +11,7 @@ Bundle 'The-NERD-tree'
 Bundle 'vim-powerline'
 Bundle 'Command-T'
 Bundle 'molokai'
+Bundle 'davidhalter/jedi-vim'
 
 """""""""""""""""""" GLOBAL
 let mapleader=","
