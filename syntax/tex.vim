@@ -1,6 +1,11 @@
+set textwidth=80
+set wrap
+
 " A few macro to write latex faster
 map! ,em \emph{
 map! ,bf \textbf{<ESC>ea}
+
+map! ,ant anthropomorphism
 
 " Beamer stuff
 "
@@ -26,10 +31,10 @@ map! ,gr \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\
 
 " Add an includegraphics, with caption and label stuff. The cursor is at the
 " beginning of the name image
-map! ,fig \begin{figure}<CR><TAB>\centering<CR>\includegraphics[width=0.9\columnwidth]{}<CR>\caption{}<CR>\label{fig\|}<CR><BS>\\end{figure}<ESC>0x3k$i
+map! ,fig \begin{figure}<CR><TAB>\centering<CR>\includegraphics[width=0.9\columnwidth]{}<CR>\caption{}<CR>\label{}<CR><BS>\\end{figure}<ESC>0x3k$i
 
 " Add a chapter, section, subsection with its label. The cursor is at the
 " beginning of the {chapter|section|...} name
-map! ,ch \chapter{}<CR>\label{chapter\|}<ESC>0k$i
-map! ,se \section{}<CR>\label{sect\|}<ESC>0k$i 
-map! ,sse \subsection{}<CR>\abel{subssect\|}<ESC>0k$i
+map! ,ch \chapter{}<CR>\label{}<ESC>0k$i
+map! ,se \section{}<CR>\label{}<ESC>0k$i 
+map! ,sse \subsection{}<CR>\label{}<ESC>0k$i

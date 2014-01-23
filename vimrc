@@ -5,13 +5,20 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'matchit.zip'
-Bundle 'The-NERD-Commenter'
-Bundle 'The-NERD-tree'
-Bundle 'vim-powerline'
-Bundle 'Command-T'
+
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'tpope/vim-fugitive'
+"Bundle 'kchmck/vim-coffee-script'
+"Bundle 'matchit.zip'
+"Bundle 'The-NERD-Commenter'
+"Bundle 'The-NERD-tree'
+Bundle 'Lokaltog/powerline'
+"Bundle 'Command-T'
 Bundle 'molokai'
-Bundle 'davidhalter/jedi-vim'
+"Do not import jedi-vim: it interferes with YouCompleteMe
+"Bundle 'davidhalter/jedi-vim'
+Bundle 'rking/ag.vim'
+Bundle 'scrooloose/syntastic'
 
 """""""""""""""""""" GLOBAL
 let mapleader=","
@@ -70,7 +77,9 @@ command! -bang W w<bang>
 
 """""""""""""""""""" PLUGINS
 
-let g:Powerline_symbols = 'fancy'
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"call vundle#rc()
+"let g:Powerline_symbols = 'fancy'
 let g:CommandTMaxFiles=5000
 let g:CommandTMaxHeight=12
 map <C-o> :CommandT<CR>
@@ -92,7 +101,16 @@ au BufNewFile *.html 0r ~/.vim/templates/html.txt
 au BufRead,BufNewFile *.jsm setfiletype javascript
 au BufRead,BufNewFile *.xul setfiletype xml
 au filetype html,xml set listchars-=tab:>.
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl 
 
+" CoffeeScript
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+
+" Compile RST to PDF on save. Silently fails if no makefile
+au BufWritePost *.rst silent! make >/dev/null 2>&1 & | redraw
+
+" Compile TEX to PDF on save. Silently fails if no makefile
+au BufWritePost *.tex silent! make >/dev/null 2>&1 & | redraw
 """""""""""""""""""" CUSTOM FUNCTIONS
 
 :command -nargs=+ Find vimgrep <args>|cw
