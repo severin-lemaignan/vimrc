@@ -95,6 +95,10 @@ nmap <C-p> <c-w><left><up><c-w><c-w>
 nmap <C-o> <c-w><left><CR>
 
 """""""""""""""""""" FILES SPECIFIC
+
+" Color ROS launch files correctly
+au BufRead,BufNewFile *.launch setfiletype xml
+
 au BufRead mutt-*        set ft=mail
 au BufRead mutt-*        set invhls
 au BufNewFile *.html 0r ~/.vim/templates/html.txt
