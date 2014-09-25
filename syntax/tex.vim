@@ -20,21 +20,20 @@ map! ,fr \begin{frame}{}<CR>\end{frame}<ESC>k3la
 
 " Build an itemize list, with a first item, the cursor is after the first
 " item
-map! ,it \begin{itemize}<CR>\item <CR>\end{itemize}<ESC>0xk$a
+map! ,it \begin{itemize}<CR>\item <CR>\end{itemize}<ESC>0k$a
 
 " Build an enumerate list, with a first item, the cursor is after the first
 " item
-map! ,en \begin{enumerate}<CR>\item <CR>\end{enumerate}<ESC>0xk$a
-
-" Add an includegraphics, the cursor is at the beginning of the name image
-map! ,gr \begin{figure}<CR><TAB>\centering<CR>\includegraphics[scale=1.0]{}<CR>\end{figure}<ESC>0xk$i
+map! ,en \begin{enumerate}<CR>\item <CR>\end{enumerate}<ESC>0k$a
 
 " Add an includegraphics, with caption and label stuff. The cursor is at the
 " beginning of the name image
-map! ,fig \begin{figure}<CR><TAB>\centering<CR>\includegraphics[width=0.9\columnwidth]{}<CR>\caption{}<CR>\label{}<CR><BS>\\end{figure}<ESC>0x3k$i
+map! ,fig \begin{figure}<CR>\centering<CR>\includegraphics[width=0.9\linewidth]{}<CR>\caption{}<CR>\label{}<CR>\end{figure}<ESC>03k$i
 
 " Add a chapter, section, subsection with its label. The cursor is at the
 " beginning of the {chapter|section|...} name
-map! ,ch \chapter{}<CR>\label{}<ESC>0k$i
-map! ,se \section{}<CR>\label{}<ESC>0k$i 
-map! ,sse \subsection{}<CR>\label{}<ESC>0k$i
+map! ,ch \chapter{}<ESC>i
+map! ,se \section{}<ESC>i 
+map! ,sse \subsection{}<ESC>i
+map! ,ssse \subsubsection{}<ESC>i
+
