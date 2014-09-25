@@ -144,6 +144,13 @@ au BufWritePost *.rst silent! make >/dev/null 2>&1 & | redraw
 
 " Compile TEX to PDF on save. Silently fails if no makefile
 au BufWritePost *.tex silent! make >/dev/null 2>&1 & | redraw
+
+" Enable folding in Latex files
+"let g:tex_fold_enabled=1
+" Disable spellchecking inside comments in latex files
+let g:tex_comment_nospell= 1
+" Enable syntax folding everywhere
+" set fdm=syntax
 """""""""""""""""""" CUSTOM FUNCTIONS
 
 :command -nargs=+ Find vimgrep <args>|cw
