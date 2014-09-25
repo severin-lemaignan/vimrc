@@ -130,6 +130,12 @@ au BufRead,BufNewFile *.xul setfiletype xml
 au filetype html,xml set listchars-=tab:>.
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl 
 
+" Markdown is now more common than modula2...
+augroup markdown
+    autocmd!
+    autocmd BufNew,BufRead *.md  set filetype=markdown
+augroup END
+
 " CoffeeScript
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
