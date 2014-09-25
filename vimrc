@@ -6,7 +6,14 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'ervandew/supertab'
+
+"Bundle 'jcf/vim-latex'
 Bundle 'Valloric/YouCompleteMe'
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
 Bundle 'tpope/vim-fugitive'
 "Bundle 'kchmck/vim-coffee-script'
 "Bundle 'matchit.zip'
@@ -93,6 +100,22 @@ nmap <c-b> :NERDTreeToggle<cr>
 nmap <C-n> <c-w><left><down><c-w><c-w>
 nmap <C-p> <c-w><left><up><c-w><c-w>
 nmap <C-o> <c-w><left><CR>
+
+" YouCompleteMe defaut C/C++ flags configuration
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Do not display the documentation 
+set completeopt-=preview
 
 """""""""""""""""""" FILES SPECIFIC
 
