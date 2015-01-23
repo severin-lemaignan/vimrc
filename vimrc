@@ -9,12 +9,14 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 
 "Bundle 'jcf/vim-latex'
+
 Bundle 'Valloric/YouCompleteMe'
+" Also includes jedi
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
-Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-fugitive'
 "Bundle 'kchmck/vim-coffee-script'
 "Bundle 'matchit.zip'
 "Bundle 'The-NERD-Commenter'
@@ -22,10 +24,16 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/powerline'
 "Bundle 'Command-T'
 Bundle 'molokai'
-"Do not import jedi-vim: it interferes with YouCompleteMe
-"Bundle 'davidhalter/jedi-vim'
+
 Bundle 'rking/ag.vim'
+
 Bundle 'scrooloose/syntastic'
+
+Bundle 'severin-lemaignan/vim-minimap'
+
+"" Xiki
+"let $XIKI_DIR = "/home/lemaigna/applis/xiki"
+"source /home/lemaigna/applis/xiki/etc/vim/xiki.vim
 
 """""""""""""""""""" GLOBAL
 let mapleader=","
@@ -82,7 +90,45 @@ map  <S-Enter> O<Esc>
 cmap <C-g> <C-u><ESC>
 command! -bang W w<bang>
 
+" capitalization (for instance, gcgc to capitalize a whole line)
+if (&tildeop)
+  nmap gcw guw~l
+  nmap gcW guW~l
+  nmap gciw guiw~l
+  nmap gciW guiW~l
+  nmap gcis guis~l
+  nmap gc$ gu$~l
+  nmap gcgc guu~l
+  nmap gcc guu~l
+  vmap gc gu~l
+else
+  nmap gcw guw~h
+  nmap gcW guW~h
+  nmap gciw guiw~h
+  nmap gciW guiW~h
+  nmap gcis guis~h
+  nmap gc$ gu$~h
+  nmap gcgc guu~h
+  nmap gcc guu~h
+  vmap gc gu~h
+endif
+
 """""""""""""""""""" PLUGINS
+
+
+"""  Syntastic adjustments
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "S"
+let g:syntastic_style_warning_symbol = "s"
+highlight SyntasticStyleWarning term=reverse cterm=bold ctermfg=244 ctermbg=232 gui=bold guifg=#808080 guibg=#080808
+highlight SyntasticStyleError term=reverse ctermbg=235 guibg=#403D3D
+highlight SyntasticWarningSign ctermfg=208 gui=italic guifg=#FD971F
+highlight SyntasticStyleWarningSign ctermfg=11 guifg=Yellow
+highlight SyntasticStyleErrorSign term=bold ctermfg=11 gui=bold guifg=Yellow
+"""
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "call vundle#rc()
