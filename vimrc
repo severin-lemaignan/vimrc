@@ -4,13 +4,13 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 
-"Bundle 'jcf/vim-latex'
+Plugin 'lervag/vim-latex'
 
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Also includes jedi
 
 Plugin 'SirVer/ultisnips'
@@ -21,15 +21,15 @@ Plugin 'honza/vim-snippets'
 "Bundle 'matchit.zip'
 "Bundle 'The-NERD-Commenter'
 "Bundle 'The-NERD-tree'
-Bundle 'Lokaltog/powerline'
+Plugin 'Lokaltog/powerline'
 "Bundle 'Command-T'
-Bundle 'molokai'
+Plugin 'molokai'
 
-Bundle 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
-Bundle 'severin-lemaignan/vim-minimap'
+Plugin 'severin-lemaignan/vim-minimap'
 
 "" Xiki
 "let $XIKI_DIR = "/home/lemaigna/applis/xiki"
@@ -179,7 +179,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 " Markdown is now more common than modula2...
 augroup markdown
     autocmd!
-    autocmd BufNew,BufRead *.md  set filetype=markdown
+    autocmd BufNewFile,BufRead *.md  set filetype=markdown
 augroup END
 
 " CoffeeScript

@@ -3,7 +3,7 @@ set wrap
 
 " A few macro to write latex faster
 map! ,em \emph{
-map! ,bf \textbf{<ESC>ea}
+map! ,bf \textbf{
 
 map! ,ant anthropomorphism
 
