@@ -182,6 +182,8 @@ augroup markdown
     autocmd BufNewFile,BufRead *.md  set filetype=markdown
 augroup END
 
+autocmd BufNewFile,BufRead *.sk  set filetype=sketch
+
 " CoffeeScript
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
