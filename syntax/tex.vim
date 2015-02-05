@@ -30,6 +30,9 @@ map! ,en \begin{enumerate}<CR>\item <CR>\end{enumerate}<ESC>0k$a
 " beginning of the name image
 map! ,fig \begin{figure}<CR>\centering<CR>\includegraphics[width=0.9\linewidth]{}<CR>\caption{}<CR>\label{}<CR>\end{figure}<ESC>03k$i
 
+map! ,gr \begin{center}<CR>\includegraphics[width=0.8\linewidth]{}<CR>\end{center}<ESC>0k$i
+
+
 " Add a chapter, section, subsection with its label. The cursor is at the
 " beginning of the {chapter|section|...} name
 map! ,ch \chapter{}<ESC>i
