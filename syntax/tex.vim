@@ -4,6 +4,7 @@ set wrap
 " A few macro to write latex faster
 map! ,em \emph{
 map! ,bf \textbf{
+map! ,tt \texttt{
 
 map! ,ant anthropomorphism
 
@@ -39,4 +40,13 @@ map! ,ch \chapter{}<ESC>i
 map! ,se \section{}<ESC>i 
 map! ,sse \subsection{}<ESC>i
 map! ,ssse \subsubsection{}<ESC>i
+
+
+"" I wasn't able to get Java highlting while keeping tex syntax as well...
+"unlet! b:current_syntax
+"let java_ignore_javadoc = 1
+"syntax include @JAVA syntax/java.vim
+"syntax region javaSnip matchgroup=Snip start="\\begin{javacode}" end="\\end{javacode}" contains=@JAVA
+
+"hi link Snip SpecialComment
 

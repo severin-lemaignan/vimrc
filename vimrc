@@ -8,7 +8,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'ervandew/supertab'
 
-Plugin 'lervag/vim-latex'
+"Plugin 'lervag/vim-latex'
 
 Plugin 'Valloric/YouCompleteMe'
 " Also includes jedi
@@ -30,6 +30,8 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 
 Plugin 'severin-lemaignan/vim-minimap'
+
+Plugin 'zah/nimrod.vim'
 
 "" Xiki
 "let $XIKI_DIR = "/home/lemaigna/applis/xiki"
@@ -213,6 +215,8 @@ function! NumberToggle()
 endfunc
 
 nnoremap <F10> :call NumberToggle()<cr>
+
+nmap <F9> :MinimapToggle<CR>
 
 """ FocusMode
 function! ToggleFocusMode()
