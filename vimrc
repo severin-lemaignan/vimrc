@@ -1,10 +1,10 @@
 """""""""""""""""""" PLUGINS
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ervandew/supertab'
 
@@ -21,9 +21,8 @@ Plugin 'honza/vim-snippets'
 "Bundle 'matchit.zip'
 "Bundle 'The-NERD-Commenter'
 "Bundle 'The-NERD-tree'
-Plugin 'Lokaltog/powerline'
+Plugin 'powerline/powerline'
 "Bundle 'Command-T'
-Plugin 'molokai'
 
 Plugin 'rking/ag.vim'
 
@@ -36,6 +35,8 @@ Plugin 'zah/nimrod.vim'
 "" Xiki
 "let $XIKI_DIR = "/home/lemaigna/applis/xiki"
 "source /home/lemaigna/applis/xiki/etc/vim/xiki.vim
+
+call vundle#end()
 
 """""""""""""""""""" GLOBAL
 let mapleader=","
