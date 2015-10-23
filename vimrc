@@ -129,7 +129,7 @@ let g:syntastic_style_warning_symbol = "s"
 highlight SyntasticStyleWarning term=reverse cterm=bold ctermfg=244 ctermbg=232 gui=bold guifg=#808080 guibg=#080808
 highlight SyntasticStyleError term=reverse ctermbg=235 guibg=#403D3D
 highlight SyntasticWarningSign ctermfg=208 gui=italic guifg=#FD971F
-highlight SyntasticStyleWarningSign ctermfg=11 guifg=Yellow
+highlight SyntasticStyleWarningSign ctermfg=11 guifg=Yellow ctermbg=236 guibg=#232526
 highlight SyntasticStyleErrorSign term=bold ctermfg=11 gui=bold guifg=Yellow
 """
 
