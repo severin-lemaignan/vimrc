@@ -219,6 +219,9 @@ nnoremap <F10> :call NumberToggle()<cr>
 
 nmap <F9> :MinimapToggle<CR>
 
+" Close location list after selecting a file
+:autocmd FileType qf nmap <buffer> <cr> <cr>:ccl<cr>
+
 """ FocusMode
 function! ToggleFocusMode()
   if (&foldcolumn != 12)
