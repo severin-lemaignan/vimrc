@@ -6,6 +6,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'ap/vim-css-color'
+
 Plugin 'ervandew/supertab'
 
 "Plugin 'lervag/vim-latex'
@@ -81,6 +83,7 @@ set wildignore=*.swp,*.bak
 set wildmode=longest,list
 set t_Co=256 "Force 256 colors
 
+set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
 """""""""""""""""""" KEYBINDINGS
 
 map cc <leader>c<space>
@@ -203,6 +206,11 @@ let g:tex_comment_nospell= 1
 " Enable syntax folding everywhere
 " set fdm=syntax
 """""""""""""""""""" CUSTOM FUNCTIONS
+
+" Run clang-format with ctrl+K
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+
 
 :command -nargs=+ Find vimgrep <args>|cw
 
