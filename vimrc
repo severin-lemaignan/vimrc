@@ -23,7 +23,10 @@ Plugin 'honza/vim-snippets'
 "Bundle 'matchit.zip'
 "Bundle 'The-NERD-Commenter'
 "Bundle 'The-NERD-tree'
-Plugin 'powerline/powerline'
+
+"Plugin 'powerline/powerline'
+Plugin 'vim-airline/vim-airline'
+
 "Bundle 'Command-T'
 
 Plugin 'rking/ag.vim'
@@ -45,6 +48,8 @@ let mapleader=","
 colorscheme molokai
 set gfn=terminus
 set go=
+
+set updatetime=250
 
 syntax on
 filetype plugin indent on
@@ -84,6 +89,7 @@ set wildmode=longest,list
 set t_Co=256 "Force 256 colors
 
 set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+
 """""""""""""""""""" KEYBINDINGS
 
 map cc <leader>c<space>
@@ -136,9 +142,12 @@ highlight SyntasticStyleWarningSign ctermfg=11 guifg=Yellow ctermbg=236 guibg=#2
 highlight SyntasticStyleErrorSign term=bold ctermfg=11 gui=bold guifg=Yellow
 """
 
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"call vundle#rc()
+let g:airline_powerline_fonts = 1
+
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "let g:Powerline_symbols = 'fancy'
+
+"call vundle#rc()
 let g:CommandTMaxFiles=5000
 let g:CommandTMaxHeight=12
 map <C-o> :CommandT<CR>
