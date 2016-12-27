@@ -33,6 +33,9 @@ map! ,fig \begin{figure}<CR>\centering<CR>\includegraphics[width=0.9\linewidth]{
 
 map! ,gr \begin{center}<CR>\includegraphics[width=0.8\linewidth]{}<CR>\end{center}<ESC>0k$i
 
+"map! ,col \begin{multicols}{}<CR><CR>\end{multicols}<ESC>0kk$i
+map! ,col \begin{columns}<CR>\begin{column}{0.5\linewidth}<CR>\end{column}<CR>\begin{column}{0.5\linewidth}<CR>\end{column}<CR><ESC>0i\end{columns}<ESC>0kkkk$a<CR>
+
 
 " Add a chapter, section, subsection with its label. The cursor is at the
 " beginning of the {chapter|section|...} name
