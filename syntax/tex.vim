@@ -21,11 +21,14 @@ map! ,fr \begin{frame}{}<CR>\end{frame}<ESC>k3la
 
 " Build an itemize list, with a first item, the cursor is after the first
 " item
-map! ,it \begin{itemize}<CR>\item <CR>\end{itemize}<ESC>0k$a
+"map! ,it \begin{itemize}<CR>\item <CR>\end{itemize}<ESC>0k$a
+
+map! ,it <ESC>0O\begin{itemize}<CR>\item <DEL><ESC>$a<CR>\end{itemize}<ESC>0k$a
 
 " Build an enumerate list, with a first item, the cursor is after the first
 " item
-map! ,en \begin{enumerate}<CR>\item <CR>\end{enumerate}<ESC>0k$a
+"map! ,en \begin{enumerate}<CR>\item <CR>\end{enumerate}<ESC>0k$a
+map! ,en <ESC>0O\begin{enumerate}<CR>\item <DEL><ESC>$a<CR>\end{enumerate}<ESC>0k$a
 
 " Add an includegraphics, with caption and label stuff. The cursor is at the
 " beginning of the name image

@@ -6,7 +6,11 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'rust-lang/rust.vim'
+
 Plugin 'ap/vim-css-color'
+
+Plugin 'sirtaj/vim-openscad'
 
 Plugin 'ervandew/supertab'
 
@@ -205,6 +209,10 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 " Compile RST to PDF on save. Silently fails if no makefile
 au BufWritePost *.rst silent! make >/dev/null 2>&1 & | redraw
 
+
+" Compile markdown to PDF on save. Silently fails if no makefile
+au BufWritePost *.md silent! make >/dev/null 2>&1 & | redraw
+
 " Compile TEX to PDF on save. Silently fails if no makefile
 au BufWritePost *.tex silent! make >/dev/null 2>&1 & | redraw
 
@@ -238,6 +246,36 @@ nmap <F9> :MinimapToggle<CR>
 
 " Close location list after selecting a file
 :autocmd FileType qf nmap <buffer> <cr> <cr>:ccl<cr>
+
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
+function ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+    set virtualedit=all
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  else
+    echo "Wrap ON"
+    setlocal wrap linebreak nolist
+    set virtualedit=
+    setlocal display+=lastline
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  endif
+endfunction
 
 """ FocusMode
 function! ToggleFocusMode()
